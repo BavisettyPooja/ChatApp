@@ -7,8 +7,10 @@ const socketio = require('socket.io')
 const formatMessage=require('./public/utils/messages')
 const {userJoin,getCurrentUser,userLeave,getRoomUsers}=require('./public/utils/users')
 const PORT = 3000|| process.env.PORT
+
 app.use(express.static(path.join(__dirname,'public')))
 const io =socketio(server)
+
 io.on('connection',socket =>{
     // when user joins a room
     socket.on('joinRoom',({username,room})=>{
